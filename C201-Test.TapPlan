@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestPlan type="OpenTap.TestPlan">
+  <OpenTap.Mixins>
+    <Number type="OpenTap.NumberMixinBuilder">
+      <Name>Number</Name>
+      <Options>0</Options>
+      <Unit>s</Unit>
+    </Number>
+  </OpenTap.Mixins>
+  <Steps>
+    <TestStep type="MccFixturePlugin.Mcc1208FS+SetRedLed" Id="fc75078b-fd1b-4173-b477-1e364f38d54d">
+      <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+      <stsled>LED_OFF</stsled>
+      <Name Metadata="Step Name">Set RED LED OFF</Name>
+      <ChildTestSteps />
+    </TestStep>
+    <TestStep type="MccFixturePlugin.Mcc1208FS+SetGreenLed" Id="652acb89-4ac3-475d-a27c-f7457eefd7ce">
+      <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+      <stsled>LED_OFF</stsled>
+      <Name Metadata="Step Name">Set GREEN LED OFF</Name>
+      <ChildTestSteps />
+    </TestStep>
+    <TestStep type="MccFixturePlugin.Mcc1208FS+ReadDAQHumidity" Id="0c8e4408-1870-40b3-8f4b-23d8fe605588">
+      <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+      <Name Metadata="Step Name">Leggi Umidità DAQ</Name>
+      <ChildTestSteps />
+    </TestStep>
+    <TestStep type="MccFixturePlugin.Mcc1208FS+ReadDAQTemperature" Id="fa6b9117-4edd-4775-8a6f-0d6f153e9e49">
+      <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+      <Name Metadata="Step Name">Leggi temperatura DAQ</Name>
+      <ChildTestSteps />
+    </TestStep>
+    <TestStep type="MccFixturePlugin.Mcc1208FS+WaitDutAndFixtureClosed" Id="b30c2085-90e3-438a-8462-1e64324b8002">
+      <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+      <Name Metadata="Step Name">Attendi DUT e fixture chiusa</Name>
+      <ChildTestSteps />
+    </TestStep>
+    <TestStep type="MccFixturePlugin.Mcc1208FS+SetGreenLed" Id="2ac929d6-c0f2-40ce-95ce-958a2a8f4c89">
+      <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+      <stsled>LED_BLINK</stsled>
+      <Name Metadata="Step Name">Set GREEN LED BLINK</Name>
+      <ChildTestSteps />
+    </TestStep>
+    <TestStep type="MccFixturePlugin.Mcc1208FS+WaitStartPressed" Id="28f1337a-6a1d-4d7f-9361-42606c86c4ab">
+      <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+      <Name Metadata="Step Name">Attendi Pulsante Start</Name>
+      <ChildTestSteps />
+    </TestStep>
+    <TestStep type="MccFixturePlugin.Mcc1208FS+SetGreenLed" Id="9db811b7-4997-4059-9139-9d9f30cf84f4">
+      <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+      <stsled>LED_ON</stsled>
+      <Name Metadata="Step Name">Set GREEN LED ON</Name>
+      <ChildTestSteps />
+    </TestStep>
+    <TestStep type="MccFixturePlugin.Mcc1208FS+PowerDut" Id="9ff4cf34-a71f-4279-a2dd-9eada918c1eb">
+      <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+      <stsDUT>true</stsDUT>
+      <Name Metadata="Step Name">Power DUT</Name>
+      <ChildTestSteps />
+      <OpenTap.Description>Accendo la scheda DUT</OpenTap.Description>
+    </TestStep>
+    <TestStep type="OpenTap.Plugins.BasicSteps.SequenceStep" Id="aa3d04aa-4118-4329-9555-6eb8ff6fe212">
+      <Name Metadata="Step Name">Controllo Alimentazioni</Name>
+      <ChildTestSteps>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="68aec10f-6a39-4d41-89fe-d6797ca9fbe0">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>5</index>
+          <mux>0</mux>
+          <Molt>2.73115</Molt>
+          <Offset>-0.18504</Offset>
+          <Min>21.12</Min>
+          <Max>26.88</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (24V)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="b14cbbeb-5bad-409a-9258-82c0a3a0e767">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>4</index>
+          <mux>0</mux>
+          <Molt>2.73115</Molt>
+          <Offset>-0.18504</Offset>
+          <Min>21.12</Min>
+          <Max>26.88</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (24VAF)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="7269b48e-0740-49b7-bd7b-76072256ed4f">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>2</index>
+          <mux>0</mux>
+          <Molt>11.57115</Molt>
+          <Offset>-1.65249</Offset>
+          <Min>20.64</Min>
+          <Max>27.36</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (VIN_M)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="3fb4cbdf-fdbe-4f0a-85fe-edeaebb284bf">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>1</index>
+          <mux>0</mux>
+          <Molt>1.0385</Molt>
+          <Offset>-0.05435</Offset>
+          <Min>3.167</Min>
+          <Max>3.464</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (3.3VEA)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="30ad2089-3fbe-4c30-9924-062b911f654b">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>0</index>
+          <mux>0</mux>
+          <Molt>1.0385</Molt>
+          <Offset>-0.05435</Offset>
+          <Min>3.173</Min>
+          <Max>3.458</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (3.3V)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="c05d213e-14c1-4004-bafe-e490b63c46fa">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>5</index>
+          <mux>1</mux>
+          <Molt>2.73115</Molt>
+          <Offset>-0.18505</Offset>
+          <Min>12.33</Min>
+          <Max>13.601</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (13V)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="76a19684-e045-4b6e-ae43-1811b2ea5445">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>4</index>
+          <mux>1</mux>
+          <Molt>2.73115</Molt>
+          <Offset>-0.18505</Offset>
+          <Min>11.922</Min>
+          <Max>13.3109</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (VOUT)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="82a5f691-f63b-4a4b-9aae-db3c891ed2de">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>3</index>
+          <mux>1</mux>
+          <Molt>5.07229</Molt>
+          <Offset>-0.66641</Offset>
+          <Min>12.071</Min>
+          <Max>13.86</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (13V_M)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+          <OpenTap.Description>
+            <Base64>Cg==</Base64>
+          </OpenTap.Description>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="331d4662-ee4f-4606-8ce4-8ce9698a7265">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>2</index>
+          <mux>1</mux>
+          <Molt>5.07229</Molt>
+          <Offset>-0.66641</Offset>
+          <Min>11.669</Min>
+          <Max>13.562</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (VOUT_M)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="092d8ba0-d45c-42da-ad74-6203b9f7fe62">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>0</index>
+          <mux>1</mux>
+          <Molt>1.0385</Molt>
+          <Offset>-0.05436</Offset>
+          <Min>1.44</Min>
+          <Max>1.56</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (1.5V)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="2e05be2a-aaf1-411d-bafc-22e7300a5795">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>5</index>
+          <mux>2</mux>
+          <Molt>2.73115</Molt>
+          <Offset>-0.18505</Offset>
+          <Min>4.4</Min>
+          <Max>5.6</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (5VUSB)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="99e9451d-d92d-40fc-b700-53b1620da129">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>3</index>
+          <mux>2</mux>
+          <Molt>2.09179</Molt>
+          <Offset>-0.21417</Offset>
+          <Min>4.3</Min>
+          <Max>5.7</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (5VUSB_M)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="9dace49d-d56c-4891-936f-0ff5f2f22ce3">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>1</index>
+          <mux>2</mux>
+          <Molt>1.0385</Molt>
+          <Offset>-0.05436</Offset>
+          <Min>1.062</Min>
+          <Max>1.338</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (1.2VEA)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="14a17165-aba5-4333-8781-ca8f9001379d">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>0</index>
+          <mux>2</mux>
+          <Molt>1.0385</Molt>
+          <Offset>-0.05436</Offset>
+          <Min>1.068</Min>
+          <Max>1.332</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (1.2VED)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="162ddde7-3b2d-46a9-9061-949fdd3413a3">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>5</index>
+          <mux>3</mux>
+          <Molt>2.73115</Molt>
+          <Offset>-0.18505</Offset>
+          <Min>21.12</Min>
+          <Max>26.88</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (VP_ISO)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="11971a21-b950-4102-b8d9-b291452718d2">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>3</index>
+          <mux>3</mux>
+          <Molt>11.57115</Molt>
+          <Offset>-1.65249</Offset>
+          <Min>20.64</Min>
+          <Max>27.36</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (VPLUS_M)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="05dbb307-c767-4e27-95d3-36d2ac737d4d">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>1</index>
+          <mux>3</mux>
+          <Molt>2.08934</Molt>
+          <Offset>-0.12606</Offset>
+          <Min>1.125</Min>
+          <Max>1.275</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (1.2V_M)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+        <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="0faa63fc-8eef-403b-a287-f4528c418bb0">
+          <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+          <index>0</index>
+          <mux>3</mux>
+          <Molt>1.0385</Molt>
+          <Offset>-0.05436</Offset>
+          <Min>1.148</Min>
+          <Max>1.252</Max>
+          <Samples>10</Samples>
+          <Name Metadata="Step Name">Verifica Alimentazione (1.2V)</Name>
+          <ChildTestSteps />
+          <BreakConditions>BreakOnError</BreakConditions>
+        </TestStep>
+      </ChildTestSteps>
+    </TestStep>
+    <TestStep type="OpenTap.Plugins.BasicSteps.ParallelStep" Id="56daf8c9-4183-4407-ab2f-3ce4b14528f4" OpenTap.Visibility="Visible">
+      <Name Metadata="Step Name">
+        <Base64>UHJvZ3JhbW1hemlvbmUgSW4gUGFyYWxsZWxvIA==</Base64>
+      </Name>
+      <ChildTestSteps>
+        <TestStep type="OpenTap.Plugins.BasicSteps.SequenceStep" Id="93659bee-cb2b-4e7f-8091-673cbd4f8958" OpenTap.Visibility="Visible">
+          <Name Metadata="Step Name">Caricamentro FW Collaborativo TIVA</Name>
+          <ChildTestSteps>
+            <TestStep type="OpenTap.Plugins.BasicSteps.DelayStep" Id="88c10e30-9fd2-4f77-acb5-6d8ef04f7792">
+              <DelaySecs>40</DelaySecs>
+              <Name Metadata="Step Name">Delay</Name>
+              <ChildTestSteps />
+            </TestStep>
+            <TestStep type="OpenTap.Plugins.BasicSteps.ProcessStep" Id="f75dce8e-5f33-48b6-b409-341170e42e2e">
+              <Application>C:\Tools\STM_ISC\ISC-B01-ST-flash.bat</Application>
+              <WorkingDirectory>C:\Tools\STM_ISC\</WorkingDirectory>
+              <EnvironmentVariables />
+              <Timeout>0</Timeout>
+              <AddToLog>false</AddToLog>
+              <CheckExitCode>false</CheckExitCode>
+              <RegularExpressionPattern>
+                <Value>(.*)</Value>
+                <IsEnabled>false</IsEnabled>
+              </RegularExpressionPattern>
+              <VerdictOnMatch>Pass</VerdictOnMatch>
+              <VerdictOnNoMatch>Fail</VerdictOnNoMatch>
+              <ResultRegularExpressionPattern>
+                <Value>(.*)</Value>
+                <IsEnabled>false</IsEnabled>
+              </ResultRegularExpressionPattern>
+              <ResultName>Regex Result</ResultName>
+              <Behavior>GroupsAsDimensions</Behavior>
+              <DimensionTitles></DimensionTitles>
+              <Enabled>false</Enabled>
+              <Name Metadata="Step Name">Flash Clear</Name>
+              <ChildTestSteps />
+            </TestStep>
+          </ChildTestSteps>
+        </TestStep>
+        <TestStep type="OpenTap.Plugins.BasicSteps.SequenceStep" Id="08f48154-142b-421c-ad36-ce4c24591b47">
+          <Name Metadata="Step Name">Caricamento NetX</Name>
+          <ChildTestSteps>
+            <TestStep type="OpenTap.Plugins.BasicSteps.DelayStep" Id="d7d916d0-53fc-4c5d-8d23-5aaa2964541b">
+              <DelaySecs>35.1</DelaySecs>
+              <Name Metadata="Step Name">Delay (1)</Name>
+              <ChildTestSteps />
+            </TestStep>
+            <TestStep type="OpenTap.Plugins.BasicSteps.ProcessStep" Id="1f4e651d-dfac-40d8-a47a-83b909e89425">
+              <Application>dir c:\</Application>
+              <WorkingDirectory>c:\</WorkingDirectory>
+              <EnvironmentVariables />
+              <Timeout>0</Timeout>
+              <AddToLog>false</AddToLog>
+              <CheckExitCode>false</CheckExitCode>
+              <RegularExpressionPattern>
+                <Value>(.*)</Value>
+                <IsEnabled>false</IsEnabled>
+              </RegularExpressionPattern>
+              <VerdictOnMatch>Pass</VerdictOnMatch>
+              <VerdictOnNoMatch>Fail</VerdictOnNoMatch>
+              <ResultRegularExpressionPattern>
+                <Value>(.*)</Value>
+                <IsEnabled>false</IsEnabled>
+              </ResultRegularExpressionPattern>
+              <ResultName>Regex Result</ResultName>
+              <Behavior>GroupsAsDimensions</Behavior>
+              <DimensionTitles></DimensionTitles>
+              <Enabled>false</Enabled>
+              <Name Metadata="Step Name">Run Program (1)</Name>
+              <ChildTestSteps />
+            </TestStep>
+          </ChildTestSteps>
+        </TestStep>
+        <TestStep type="OpenTap.Plugins.BasicSteps.SequenceStep" Id="7581ec72-7338-43f0-afd6-7f004f658de8">
+          <Name Metadata="Step Name">Caricamento FW Collaborativo</Name>
+          <ChildTestSteps>
+            <TestStep type="MccFixturePlugin.Mcc1208FS+PowerDut" Id="7fabb1f9-38fc-45e0-978a-da16e40f79ed">
+              <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+              <stsDUT>false</stsDUT>
+              <Name Metadata="Step Name">Power DUT OFF</Name>
+              <ChildTestSteps />
+              <OpenTap.Description>Accendo la scheda DUT</OpenTap.Description>
+            </TestStep>
+            <TestStep type="MccFixturePlugin.Mcc1208FS+SetOutput" Id="05a92066-06a8-4c42-a394-43bae6f44e12">
+              <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+              <stsOut>true</stsOut>
+              <maskOut>64</maskOut>
+              <Name Metadata="Step Name">Prepara XDS100 per upload FW</Name>
+              <ChildTestSteps />
+            </TestStep>
+            <TestStep type="MccFixturePlugin.Mcc1208FS+SetOutput" Id="df96deeb-eeba-4493-8a7b-4df36bfd7b6d">
+              <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+              <stsOut>true</stsOut>
+              <maskOut>16</maskOut>
+              <Name Metadata="Step Name">Prepara WD</Name>
+              <ChildTestSteps />
+            </TestStep>
+            <TestStep type="OpenTap.Plugins.BasicSteps.DelayStep" Id="0c049347-0c6b-4747-ba7e-99ed59b88bab">
+              <DelaySecs>1.1</DelaySecs>
+              <Name Metadata="Step Name">Delay</Name>
+              <ChildTestSteps />
+            </TestStep>
+            <TestStep type="MccFixturePlugin.Mcc1208FS+PowerDut" Id="78446dcb-bc99-40ce-92a2-bffb3c99c423">
+              <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+              <stsDUT>true</stsDUT>
+              <Name Metadata="Step Name">Power DUT ON</Name>
+              <ChildTestSteps />
+              <OpenTap.Description>Accendo la scheda DUT</OpenTap.Description>
+            </TestStep>
+            <TestStep type="OpenTap.Plugins.BasicSteps.DelayStep" Id="7cd0df5a-c882-4ffb-b847-94d22e05d9bf">
+              <DelaySecs>3.1</DelaySecs>
+              <Name Metadata="Step Name">Delay</Name>
+              <ChildTestSteps />
+            </TestStep>
+            <TestStep type="OpenTap.Plugins.BasicSteps.ProcessStep" Id="deffac29-ae21-4f5f-8390-c73c76bf109c">
+              <Application>..\..\Tools\UniFlash_TI_COLLABORATIVO_201B\dslite.bat</Application>
+              <WorkingDirectory>..\..\Tools\UniFlash_TI_COLLABORATIVO_201B</WorkingDirectory>
+              <EnvironmentVariables />
+              <Timeout>0</Timeout>
+              <AddToLog>true</AddToLog>
+              <CheckExitCode>true</CheckExitCode>
+              <RegularExpressionPattern>
+                <Value>(.*)</Value>
+                <IsEnabled>false</IsEnabled>
+              </RegularExpressionPattern>
+              <VerdictOnMatch>Pass</VerdictOnMatch>
+              <VerdictOnNoMatch>Fail</VerdictOnNoMatch>
+              <ResultRegularExpressionPattern>
+                <Value>(.*)</Value>
+                <IsEnabled>false</IsEnabled>
+              </ResultRegularExpressionPattern>
+              <ResultName>Regex Result</ResultName>
+              <Behavior>GroupsAsDimensions</Behavior>
+              <DimensionTitles></DimensionTitles>
+              <Name Metadata="Step Name">Run Program</Name>
+              <ChildTestSteps />
+              <BreakConditions>BreakOnError</BreakConditions>
+            </TestStep>
+            <TestStep type="OpenTap.Plugins.BasicSteps.DelayStep" Id="e6eef2ad-1e87-413f-8148-4d3444732f8f">
+              <DelaySecs>0.1</DelaySecs>
+              <Name Metadata="Step Name">Delay</Name>
+              <ChildTestSteps />
+            </TestStep>
+            <TestStep type="MccFixturePlugin.Mcc1208FS+SetOutput" Id="08d59284-068d-48b1-bf39-b5ba5cf9b13c">
+              <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+              <stsOut>false</stsOut>
+              <maskOut>64</maskOut>
+              <Name Metadata="Step Name">Prepara XDS100 post upload FW</Name>
+              <ChildTestSteps />
+            </TestStep>
+            <TestStep type="MccFixturePlugin.Mcc1208FS+SetOutput" Id="0004ea8f-02e7-46cb-a34b-02bc087a7b00">
+              <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+              <stsOut>false</stsOut>
+              <maskOut>16</maskOut>
+              <Name Metadata="Step Name">Disattiva WD</Name>
+              <ChildTestSteps />
+            </TestStep>
+          </ChildTestSteps>
+        </TestStep>
+      </ChildTestSteps>
+    </TestStep>
+    <TestStep type="MccFixturePlugin.Mcc1208FS+SetGreenLed" Id="f4c992c3-fef0-4e13-a882-fd8215c25b35">
+      <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+      <stsled>LED_BLINK</stsled>
+      <Name Metadata="Step Name">Set GREEN LED ON</Name>
+      <ChildTestSteps />
+    </TestStep>
+    <TestStep type="MccFixturePlugin.Mcc1208FS+PowerDut" Id="98625ef6-8145-4f82-8294-f7b58026d2a0">
+      <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
+      <stsDUT>false</stsDUT>
+      <Name Metadata="Step Name">Power DUT</Name>
+      <ChildTestSteps />
+      <OpenTap.Description>Spengo DUT</OpenTap.Description>
+    </TestStep>
+  </Steps>
+  <Number>0</Number>
+  <Package.Dependencies>
+    <Package Name="OpenTAP" Version="^9.32.2+e74c0d2d" />
+    <Package Name="Expressions" Version="^1.6.0+135e2a8e" />
+  </Package.Dependencies>
+</TestPlan>
