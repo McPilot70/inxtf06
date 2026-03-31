@@ -60,7 +60,7 @@
       <OpenTap.Description>Accendo la scheda DUT</OpenTap.Description>
     </TestStep>
     <TestStep type="OpenTap.Plugins.BasicSteps.SequenceStep" Id="aa3d04aa-4118-4329-9555-6eb8ff6fe212">
-      <Name Metadata="Step Name">Controllo Alimentazioni</Name>
+      <Name Metadata="Step Name">Controllo Alimentazioni (MCPILOT)</Name>
       <ChildTestSteps>
         <TestStep type="MccFixturePlugin.Mcc1208FS+VerifyVoltage" Id="68aec10f-6a39-4d41-89fe-d6797ca9fbe0">
           <Scheda Source="OpenTap.InstrumentSettings">Mcc1208</Scheda>
